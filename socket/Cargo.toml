@@ -1,5 +1,5 @@
 [package]
-name = "rust-sandbox"
+name = "socket"
 version = "0.1.0"
 authors = ["k3nt0w <kento.watanabe.11@gmail.com>"]
 edition = "2018"
