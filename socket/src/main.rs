@@ -26,7 +26,7 @@ fn main() {
     match protocol {
         "tcp" => match role {
             "server" => tcp_server::serve(address).unwrap_or_else(|e| error!("{}", e)),
-            "client" => println!("tcp client"),
+            "client" => tcp_client::connect(address).unwrap_or_else(|e| error!("{}", e)),
             _ => missing_role(),
         },
         "udp" => match role {
