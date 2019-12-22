@@ -30,8 +30,8 @@ fn main() {
             _ => missing_role(),
         },
         "udp" => match role {
-            "server" => println!("udp server"),
-            "client" => println!("udp client"),
+            "server" => udp_server::serve(address).unwrap_or_else(|e| error!("{}", e)),
+            "client" => udp_client::connect(address).unwrap_or_else(|e| error!("{}", e)),
             _ => missing_role(),
         },
         _ => {
