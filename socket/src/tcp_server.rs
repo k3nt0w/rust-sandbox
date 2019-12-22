@@ -4,10 +4,10 @@ use std::{str, thread};
 
 pub fn serve(address: &str) -> Result<(), failure::Error> {
   // listening socket (server socket) for waiting to complete connection
-  let listener = TcpListener::bind(address)?;
+  let server_socket = TcpListener::bind(address)?;
   loop {
     // client socket for messaging data
-    let (stream, _) = listener.accept()?;
+    let (stream, _) = server_socket.accept()?;
     thread::spawn(move || handler(stream).unwrap_or_else(|error| error!("{:?}", error)));
   }
 }
